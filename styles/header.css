@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  height: 56px;
+  flex-wrap: wrap;         /* 깨짐 방지 */
+}
+
+.header__logo {
+  flex-shrink: 0;
+  font-size: clamp(14px, 4vw, 20px); /* 반응형 폰트 */
+}
+
+.header__nav {
+  display: flex;
+  gap: 16px;
+}
+
+/* 모바일: 햄버거 메뉴로 전환 */
+@media (max-width: 390px) {
+  .header__nav {
+    display: none;
+  }
+  .header__hamburger {
+    display: flex;
+  }
+}
