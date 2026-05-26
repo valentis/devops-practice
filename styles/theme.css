@@ -1,0 +1,15 @@
+:root {
+  --bg-primary: #ffffff;
+  --text-primary: #111111;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #1a1a2e;
+  --text-primary: #e0e0e0;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background 0.3s, color 0.3s;
+}
