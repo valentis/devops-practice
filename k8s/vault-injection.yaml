@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-server
+spec:
+  template:
+    metadata:
+      annotations:
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/role: "api-server"
+        vault.hashicorp.com/agent-inject-secret-db: "secret/data/db/credentials"
+        vault.hashicorp.com/agent-inject-template-db: |
+          {{- with secret "secret/data/db/credentials" -}}
+          export DB_USER="{{ .Data.data.username }}"
+          export DB_PASS="{{ .Data.data.password }}"
+          {{- end }}
